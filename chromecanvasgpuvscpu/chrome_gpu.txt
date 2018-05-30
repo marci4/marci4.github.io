@@ -1,0 +1,301 @@
+
+Graphics Feature Status
+Canvas: Hardware accelerated
+CheckerImaging: Disabled
+Flash: Hardware accelerated
+Flash Stage3D: Hardware accelerated
+Flash Stage3D Baseline profile: Hardware accelerated
+Compositing: Hardware accelerated
+Multiple Raster Threads: Enabled
+Native GpuMemoryBuffers: Software only. Hardware acceleration disabled
+Rasterization: Hardware accelerated
+Surface Synchronization: Enabled
+Video Decode: Hardware accelerated
+WebGL: Hardware accelerated
+WebGL2: Hardware accelerated
+Driver Bug Workarounds
+clear_uniforms_before_first_program_use
+decode_encode_srgb_for_generatemipmap
+disable_delayed_copy_nv12
+disable_discard_framebuffer
+disable_framebuffer_cmaa
+exit_on_context_lost
+force_cube_complete
+scalarize_vec_and_mat_constructor_args
+texsubimage_faster_than_teximage
+Problems Detected
+Some drivers are unable to reset the D3D device in the GPU process sandbox
+Applied Workarounds: exit_on_context_lost
+TexSubImage is faster for full uploads on ANGLE
+Applied Workarounds: texsubimage_faster_than_teximage
+Clear uniforms before first program use on all platforms: 124764, 349137
+Applied Workarounds: clear_uniforms_before_first_program_use
+Always rewrite vec/mat constructors to be consistent: 398694
+Applied Workarounds: scalarize_vec_and_mat_constructor_args
+ANGLE crash on glReadPixels from incomplete cube map texture: 518889
+Applied Workarounds: force_cube_complete
+Framebuffer discarding can hurt performance on non-tilers: 570897
+Applied Workarounds: disable_discard_framebuffer
+Use GL_INTEL_framebuffer_CMAA on ChromeOS: 535198
+Applied Workarounds: disable_framebuffer_cmaa
+Disable KHR_blend_equation_advanced until cc shaders are updated: 661715
+Applied Workarounds: disable(GL_KHR_blend_equation_advanced), disable(GL_KHR_blend_equation_advanced_coherent)
+Decode and Encode before generateMipmap for srgb format textures on Windows: 634519
+Applied Workarounds: decode_encode_srgb_for_generatemipmap
+Delayed copy NV12 displays incorrect colors on NVIDIA drivers.: 728670
+Applied Workarounds: disable_delayed_copy_nv12
+Don't expose disjoint_timer_query extensions to WebGL: 808744
+Native GpuMemoryBuffers have been disabled, either via about:flags or command line.
+Disabled Features: native_gpu_memory_buffers
+Checker-imaging has been disabled via finch trial or the command line.
+Disabled Features: checker_imaging
+Version Information
+Data exported	2018-05-30T08:09:30.289Z
+Chrome version	Chrome/66.0.3359.181
+Operating system	Windows NT 10.0.16299
+Software rendering list URL	https://chromium.googlesource.com/chromium/src/+/a10b9cedb40738cb152f8148ddab4891df876959/gpu/config/software_rendering_list.json
+Driver bug list URL	https://chromium.googlesource.com/chromium/src/+/a10b9cedb40738cb152f8148ddab4891df876959/gpu/config/gpu_driver_bug_list.json
+ANGLE commit id	22c768fbda54
+2D graphics backend	Skia/66 773868fdade5f9f0e7697e6d09c9bd80aaa9b402-
+Command Line	"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --flag-switches-begin --enable-devtools-experiments --enable-experimental-canvas-features --flag-switches-end
+Driver Information
+Initialization time	260
+In-process GPU	false
+Passthrough Command Decoder	false
+Direct Composition	true
+Supports overlays	false
+Sandboxed	true
+GPU0	VENDOR = 0x10de, DEVICE= 0x13b1 *ACTIVE*
+GPU1	VENDOR = 0x8086, DEVICE= 0x191b
+Optimus	false
+Optimus	false
+AMD switchable	false
+Desktop compositing	Aero Glass
+Diagonal Monitor Size of \\.\DISPLAY2	15.5"
+Diagonal Monitor Size of \\.\DISPLAY5	23.9"
+Driver vendor	NVIDIA
+Driver version	22.21.13.8573
+Driver date	9-25-2017
+Pixel shader version	5.0
+Vertex shader version	5.0
+Max. MSAA samples	8
+Machine model name	
+Machine model version	
+GL_VENDOR	Google Inc.
+GL_RENDERER	ANGLE (NVIDIA Quadro M1000M Direct3D11 vs_5_0 ps_5_0)
+GL_VERSION	OpenGL ES 2.0 (ANGLE 2.1.0.22c768fbda54)
+GL_EXTENSIONS	GL_ANGLE_client_arrays GL_ANGLE_depth_texture GL_ANGLE_framebuffer_blit GL_ANGLE_framebuffer_multisample GL_ANGLE_instanced_arrays GL_ANGLE_lossy_etc_decode GL_ANGLE_pack_reverse_row_order GL_ANGLE_program_cache_control GL_ANGLE_request_extension GL_ANGLE_robust_client_memory GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_ANGLE_texture_usage GL_ANGLE_translated_shader_source GL_CHROMIUM_bind_generates_resource GL_CHROMIUM_bind_uniform_location GL_CHROMIUM_color_buffer_float_rgb GL_CHROMIUM_color_buffer_float_rgba GL_CHROMIUM_copy_compressed_texture GL_CHROMIUM_copy_texture GL_CHROMIUM_sync_query GL_EXT_blend_minmax GL_EXT_color_buffer_half_float GL_EXT_debug_marker GL_EXT_discard_framebuffer GL_EXT_disjoint_timer_query GL_EXT_draw_buffers GL_EXT_frag_depth GL_EXT_map_buffer_range GL_EXT_occlusion_query_boolean GL_EXT_read_format_bgra GL_EXT_robustness GL_EXT_sRGB GL_EXT_shader_texture_lod GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_s3tc_srgb GL_EXT_texture_filter_anisotropic GL_EXT_texture_format_BGRA8888 GL_EXT_texture_rg GL_EXT_texture_storage GL_EXT_unpack_subimage GL_KHR_debug GL_NV_EGL_stream_consumer_external GL_NV_fence GL_NV_pack_subimage GL_NV_pixel_buffer_object GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth32 GL_OES_element_index_uint GL_OES_get_program_binary GL_OES_mapbuffer GL_OES_packed_depth_stencil GL_OES_rgb8_rgba8 GL_OES_standard_derivatives GL_OES_surfaceless_context GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_vertex_array_object
+Disabled Extensions	GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent
+Disabled WebGL Extensions	EXT_disjoint_timer_query EXT_disjoint_timer_query_webgl2
+Window system binding vendor	Google Inc. (adapter LUID: 000000000001b8f3)
+Window system binding version	1.4 (ANGLE 2.1.0.22c768fbda54)
+Window system binding extensions	EGL_EXT_create_context_robustness EGL_ANGLE_d3d_share_handle_client_buffer EGL_ANGLE_d3d_texture_client_buffer EGL_ANGLE_surface_d3d_texture_2d_share_handle EGL_ANGLE_query_surface_pointer EGL_ANGLE_window_fixed_size EGL_ANGLE_keyed_mutex EGL_ANGLE_surface_orientation EGL_ANGLE_direct_composition EGL_NV_post_sub_buffer EGL_KHR_create_context EGL_EXT_device_query EGL_KHR_image EGL_KHR_image_base EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_gl_renderbuffer_image EGL_KHR_get_all_proc_addresses EGL_KHR_stream EGL_KHR_stream_consumer_gltexture EGL_NV_stream_consumer_gltexture_yuv EGL_ANGLE_flexible_surface_compatibility EGL_ANGLE_stream_producer_d3d_texture EGL_ANGLE_create_context_webgl_compatibility EGL_CHROMIUM_create_context_bind_generates_resource EGL_CHROMIUM_sync_control EGL_EXT_pixel_format_float EGL_KHR_surfaceless_context EGL_ANGLE_display_texture_share_group EGL_ANGLE_create_context_client_arrays EGL_ANGLE_program_cache_control EGL_ANGLE_robust_resource_initialization
+Direct rendering	Yes
+Reset notification strategy	0x8252
+GPU process crash count	0
+Compositor Information
+Tile Update Mode	One-copy
+Partial Raster	Enabled
+GpuMemoryBuffers Status
+ATC	Software only
+ATCIA	Software only
+DXT1	Software only
+DXT5	Software only
+ETC1	Software only
+R_8	Software only
+R_16	Software only
+RG_88	Software only
+BGR_565	Software only
+RGBA_4444	Software only
+RGBX_8888	GPU_READ, SCANOUT
+RGBA_8888	GPU_READ, SCANOUT
+BGRX_8888	Software only
+BGRX_1010102	Software only
+RGBX_1010102	Software only
+BGRA_8888	Software only
+RGBA_F16	Software only
+YVU_420	Software only
+YUV_420_BIPLANAR	Software only
+UYVY_422	Software only
+Display(s) Information
+Info	Display[2779098405] bounds=-1920,0 1920x1080, workarea=-1920,0 1920x1040, scale=1, external
+Color space information	{primaries:BT709, transfer:IEC61966_2_1, matrix:RGB, range:FULL}
+Bits per color component	8
+Bits per pixel	24
+Info	Display[1133551107] bounds=0,0 1920x1080, workarea=0,0 1920x1040, scale=1, external
+Color space information	{primaries:BT709, transfer:IEC61966_2_1, matrix:RGB, range:FULL}
+Bits per color component	8
+Bits per pixel	24
+Video Acceleration Information
+Decode h264 baseline	up to 4096x2304 pixels
+Decode h264 baseline	up to 2304x4096 pixels
+Decode h264 main	up to 4096x2304 pixels
+Decode h264 main	up to 2304x4096 pixels
+Decode h264 high	up to 4096x2304 pixels
+Decode h264 high	up to 2304x4096 pixels
+Encode h264 baseline	up to 3840x2176 pixels and/or 30.000 fps
+Encode h264 main	up to 3840x2176 pixels and/or 30.000 fps
+Encode h264 high	up to 3840x2176 pixels and/or 30.000 fps
+Diagnostics
+0
+b3DAccelerationEnabled	true
+b3DAccelerationExists	true
+bAGPEnabled	true
+bAGPExistenceValid	true
+bAGPExists	true
+bCanRenderWindow	true
+bDDAccelerationEnabled	true
+bDriverBeta	false
+bDriverDebug	false
+bDriverSigned	false
+bDriverSignedValid	false
+bNoHardware	false
+dwBpp	32
+dwDDIVersion	12
+dwHeight	1080
+dwRefreshRate	60
+dwWHQLLevel	0
+dwWidth	1920
+iAdapter	1
+lDriverSize	60397088
+lMiniVddSize	0
+szAGPStatusEnglish	Enabled
+szAGPStatusLocalized	Aktiviert
+szChipType	Intel(R) HD Graphics Family
+szD3DStatusEnglish	Enabled
+szD3DStatusLocalized	Aktiviert
+szDACType	Internal
+szDDIVersionEnglish	12
+szDDIVersionLocalized	12
+szDDStatusEnglish	Enabled
+szDDStatusLocalized	Aktiviert
+szDXVAHDEnglish	Supported
+szDXVAModes	ModeMPEG2_A ModeMPEG2_C ModeWMV9_C ModeVC1_C
+szDescription	Intel(R) HD Graphics 530
+szDeviceId	0x191B
+szDeviceIdentifier	{D7B78E66-5A5B-11CF-2F61-C5A0BDC2DB35}
+szDeviceName	\\.\DISPLAY2
+szDisplayMemoryEnglish	8259 MB
+szDisplayMemoryLocalized	8259 MB
+szDisplayModeEnglish	1920 x 1080 (32 bit) (60Hz)
+szDisplayModeLocalized	1920 x 1080 (32 bit) (60Hz)
+szDriverAssemblyVersion	22.20.16.4771
+szDriverAttributes	Final Retail
+szDriverDateEnglish	13.08.2017 02:00:00
+szDriverDateLocalized	8/13/2017 02:00:00
+szDriverLanguageEnglish	English
+szDriverLanguageLocalized	Englisch
+szDriverModelEnglish	WDDM 2.1
+szDriverModelLocalized	WDDM 2.1
+szDriverName	igdumdim64.dll,igd10iumd64.dll,igd10iumd64.dll,igd12umd64.dll
+szDriverNodeStrongName	oem18.inf:5f63e5340a14bf6c:iSKLD_w10:22.20.16.4771:pci\ven_8086&dev_191b&subsys_80d5103c
+szDriverSignDate	Unknown
+szDriverVersion	22.20.0016.4771
+szKeyDeviceID	Enum\PCI\VEN_8086&DEV_191B&SUBSYS_80D5103C&REV_06
+szKeyDeviceKey	\Registry\Machine\System\CurrentControlSet\Control\Video\{B4012456-D4F6-11E7-878D-8858C4F8225F}\0000
+szManufacturer	Intel Corporation
+szMiniVdd	Unbekannt
+szMiniVddDateEnglish	Unknown
+szMiniVddDateLocalized	Unbekannt
+szMonitorMaxRes	Unknown
+szMonitorName	Generic PnP Monitor
+szNotesEnglish	No problems found.
+szNotesLocalized	Es wurden keine Probleme gefunden.
+szOverlayEnglish	Supported
+szRankOfInstalledDriver	00D10001
+szRegHelpText	Unknown
+szRevision	Unknown
+szRevisionId	0x0006
+szSubSysId	0x80D5103C
+szTestResultD3D7English	Not run
+szTestResultD3D7Localized	Nicht ausgeführt
+szTestResultD3D8English	Not run
+szTestResultD3D8Localized	Nicht ausgeführt
+szTestResultD3D9English	Not run
+szTestResultD3D9Localized	Nicht ausgeführt
+szTestResultDDEnglish	Not run
+szTestResultDDLocalized	Nicht ausgeführt
+szVdd	Unbekannt
+szVendorId	0x8086
+1
+b3DAccelerationEnabled	true
+b3DAccelerationExists	true
+bAGPEnabled	true
+bAGPExistenceValid	true
+bAGPExists	true
+bCanRenderWindow	true
+bDDAccelerationEnabled	true
+bDriverBeta	false
+bDriverDebug	false
+bDriverSigned	false
+bDriverSignedValid	false
+bNoHardware	false
+dwBpp	32
+dwDDIVersion	12
+dwHeight	1080
+dwRefreshRate	60
+dwWHQLLevel	0
+dwWidth	1920
+iAdapter	0
+lDriverSize	893456
+lMiniVddSize	0
+szAGPStatusEnglish	Enabled
+szAGPStatusLocalized	Aktiviert
+szChipType	Quadro M1000M
+szD3DStatusEnglish	Enabled
+szD3DStatusLocalized	Aktiviert
+szDACType	Integrated RAMDAC
+szDDIVersionEnglish	12
+szDDIVersionLocalized	12
+szDDStatusEnglish	Enabled
+szDDStatusLocalized	Aktiviert
+szDXVAHDEnglish	Supported
+szDXVAModes	
+szDescription	NVIDIA Quadro M1000M
+szDeviceId	0x13B1
+szDeviceIdentifier	{D7B71E3E-50F1-11CF-F152-D8A018C2DB35}
+szDeviceName	\\.\DISPLAY5
+szDisplayMemoryEnglish	10149 MB
+szDisplayMemoryLocalized	10149 MB
+szDisplayModeEnglish	1920 x 1080 (32 bit) (60Hz)
+szDisplayModeLocalized	1920 x 1080 (32 bit) (60Hz)
+szDriverAssemblyVersion	22.21.13.8573
+szDriverAttributes	Final Retail
+szDriverDateEnglish	25.09.2017 02:00:00
+szDriverDateLocalized	9/25/2017 02:00:00
+szDriverLanguageEnglish	English
+szDriverLanguageLocalized	Englisch
+szDriverModelEnglish	WDDM 2.2
+szDriverModelLocalized	WDDM 2.2
+szDriverName	C:\Windows\System32\DriverStore\FileRepository\nvbl.inf_amd64_3e7c6d641a508c95\nvldumdx.dll,C:\Windows\System32\DriverStore\FileRepository\nvbl.inf_amd64_3e7c6d641a508c95\nvldumdx.dll,C:\Windows\System32\DriverStore\FileRepository\nvbl.inf_amd64_3e7c6d641a508c95\nvldumdx.dll,C:\Windows\System32\DriverStore\FileRepository\nvbl.inf_amd64_3e7c6d641a508c95\nvldumdx.dll
+szDriverNodeStrongName	oem61.inf:0f066de39773e736:Section052:22.21.13.8573:pci\ven_10de&dev_13b1&subsys_80d5103c
+szDriverSignDate	Unknown
+szDriverVersion	22.21.0013.8573
+szKeyDeviceID	Enum\PCI\VEN_10DE&DEV_13B1&SUBSYS_80D5103C&REV_A2
+szKeyDeviceKey	\Registry\Machine\System\CurrentControlSet\Control\Video\{F717867A-D5A0-11E7-8792-2816AD1BC34D}\0000
+szManufacturer	NVIDIA
+szMiniVdd	Unbekannt
+szMiniVddDateEnglish	Unknown
+szMiniVddDateLocalized	Unbekannt
+szMonitorMaxRes	Unknown
+szMonitorName	Generic PnP Monitor
+szNotesEnglish	No problems found.
+szNotesLocalized	Es wurden keine Probleme gefunden.
+szOverlayEnglish	Supported
+szRankOfInstalledDriver	00D10001
+szRegHelpText	Unknown
+szRevision	Unknown
+szRevisionId	0x00A2
+szSubSysId	0x80D5103C
+szTestResultD3D7English	Not run
+szTestResultD3D7Localized	Nicht ausgeführt
+szTestResultD3D8English	Not run
+szTestResultD3D8Localized	Nicht ausgeführt
+szTestResultD3D9English	Not run
+szTestResultD3D9Localized	Nicht ausgeführt
+szTestResultDDEnglish	Not run
+szTestResultDDLocalized	Nicht ausgeführt
+szVdd	Unbekannt
+szVendorId	0x10DE
+Log Messages
+GpuProcessHostUIShim: The GPU process exited normally. Everything is okay.
