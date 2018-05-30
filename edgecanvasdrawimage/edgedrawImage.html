@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<body onload="onLoad()">
+
+<div tabindex="0" style="position: absolute; left: 0px; top: 0px;">
+    <canvas width="1920" height="1000" tabindex="2000" id="background"
+            style="outline: invert; left: 0px; top: 0px; position: absolute; z-index: 100; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+        Webvisu not supported due to missing browser feature HTML5-Canvas
+    </canvas>
+    <canvas width="1920" height="1000" tabindex="1000" id="foreground"
+            style="outline: invert; left: 0px; top: 0px; position: absolute; z-index: 200; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+        Webvisu not supported due to missing browser feature HTML5-Canvas
+    </canvas>
+</div>
+
+<script>
+	function onLoad() {
+		var img0 = new Image();
+		var c = document.getElementById("foreground");
+		var foreground = c.getContext("2d");
+		var background = document.getElementById('background').getContext("2d");
+		var i = 0;
+
+		img0.src = "lamp-yellow.svg#svgView(preserveAspectRatio(none))";
+		img0.onload = function () {
+			doPaint();
+		}
+		var img1 = new Image();
+		img1.src = "lamp-red.svg#svgView(preserveAspectRatio(none))";
+		img1.onload = function () {
+			doPaint();
+		}
+
+		function doPaint() {
+			i++;
+			if (i < 2) {
+				return;
+            }
+			foreground.clearRect(0,0,1920,974);
+			background.fillStyle = "#ffffff";
+			background.fillRect(0,0,1920,974);
+			foreground.clearRect(0,0,1920,974);
+			background.fillStyle = "#ffffff";
+			background.fillRect(0,0,1920,974);
+			foreground.save();
+			foreground.fillStyle = "#ffffff";
+			foreground.strokeStyle = "#000000";
+			foreground.lineWidth = 0.5;
+			foreground.font = "12px Arial";
+			background.fillStyle = "#ffffff";
+			background.strokeStyle = "#000000";
+			background.lineWidth = 0.5;
+			background.font = "12px Arial";
+			foreground.clearRect(0,0,1919,973);
+			foreground.clearRect(-5,-5,10,10);
+			foreground.clearRect(0,0,10000,10000);
+			foreground.beginPath();
+			foreground.rect(0,0,1919,973);
+			foreground.rect(-5,-5,10,10);
+			foreground.rect(0,0,10000,10000);
+			foreground.clip();
+			background.fillStyle = "#ff00ff00";
+			background.strokeStyle = "#ff00ff00";
+			background.lineWidth = 1;
+			background.lineCap = "butt";
+			background.lineJoin = "miter";
+			background.miterLimit = 1.5;
+			background.setLineDash([]);
+			background.fillRect(0,0,1929,983);
+			background.strokeRect(0,0,1929,983);
+			foreground.strokeStyle = "#ff00ff00";
+			foreground.lineWidth = 1;
+			foreground.lineCap = "butt";
+			foreground.lineJoin = "miter";
+			foreground.miterLimit = 1.5;
+			foreground.setLineDash([]);
+			foreground.fillStyle = "#ff00ff00";
+			foreground.drawImage(img0,857,589,336,336);
+			foreground.drawImage(img1,1578,595,336,336);
+			foreground.restore();
+		}
+	}
+</script>
+</body>
+</html>
