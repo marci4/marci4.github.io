@@ -1,0 +1,57 @@
+<html>
+<head>
+
+</head>
+<body onload="paint()">
+<div style="position: absolute; left: 0px; top: 0px;">
+  
+    <canvas id="foreground" width="800" height="600"
+            style="position: absolute; left: 0px; top: 0px; z-index: 100; outline: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+            tabindex="1000">>
+    </canvas>
+</div>
+
+<script>
+	function paint() {
+		var foreground = document.getElementById('foreground').getContext('2d');
+		foreground.clearRect(0,0,1920,974);
+		foreground.clearRect(-5,-5,10,10);
+		foreground.clearRect(0,0,10000,10000);
+		foreground.beginPath();
+		foreground.rect(0,0,1920,974);
+		foreground.rect(-5,-5,10,10);
+		foreground.rect(0,0,10000,10000);
+		foreground.clip();
+		foreground.fillStyle = "#FFFFFF";
+		foreground.strokeStyle = "#000000";
+		foreground.lineWidth = 1;
+		foreground.lineCap = "butt";
+		foreground.lineJoin = "miter";
+		foreground.miterLimit = 1.5;
+		foreground.setLineDash([]);
+		foreground.beginPath();
+		foreground.moveTo(405,205);
+		foreground.lineTo(449,205);
+		foreground.arc(449,260,55,4.71238898038469,6.283185307179586,false);
+		foreground.lineTo(504,260);
+		foreground.arc(449,260,55,6.283185307179586,1.5707963267948966,false);
+		foreground.lineTo(405,315);
+		foreground.arc(405,260,55,1.5707963267948966,3.141592653589793,false);
+		foreground.lineTo(350,260);
+		foreground.arc(405,260,55,3.141592653589793,4.71238898038469,false);
+		foreground.closePath();
+		foreground.fill();
+		foreground.stroke();
+		foreground.restore();
+		foreground.save();
+		foreground.fillStyle = "#FFFFFF";
+		foreground.strokeStyle = "#000000";
+		foreground.lineWidth = 1;
+		foreground.font = "12px Arial";
+		foreground.lineCap = "butt";
+		foreground.lineJoin = "miter";
+		foreground.miterLimit = 1.5;
+	}
+</script>
+</body>
+</html>
