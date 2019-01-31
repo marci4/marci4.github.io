@@ -1,0 +1,136 @@
+<html>
+<head>
+    <style>
+        .rectangle {
+            width: 100px;
+            height: 500px;
+            border: 1px solid #000;
+            touch-action: none;
+        }
+    </style>
+</head>
+<body onload="onload()">
+<script>
+	var rect0PointerID = 0, rect1PointerID = 0;
+
+	function onload() {
+		var rect0 = window.document.getElementById("rect0");
+		rect0.addEventListener("pointerdown", function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+			if (e.pointerType !== "touch") {
+				console.log("Event is not a touch event ", event);
+				return;
+			}
+			if (rect0PointerID === 0) {
+				rect0PointerID = e.pointerId;
+			}
+			if (rect0PointerID !== e.pointerId) {
+				console.log("Difference in pointer ids. Expected: ", rect0PointerID, " got: ", e.pointerId);
+			}
+			incr("rect0", "down")
+		});
+		rect0.addEventListener("pointerup", function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+			if (e.pointerType !== "touch") {
+				console.log("Event is not a touch event ", event);
+				return;
+			}
+			rect0PointerID = 0;
+			incr("rect0", "up")
+		});
+		rect0.addEventListener("pointermove", function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+			console.log("Rect0", e.offsetY, e.offsetX);
+			if (e.pointerType !== "touch") {
+				console.log("Event is not a touch event ", event);
+				return;
+			}
+			if (rect0PointerID !== e.pointerId) {
+				console.log("Difference in pointer ids. Expected: ", rect0PointerID, " got: ", e.pointerId);
+			}
+			incr("rect0", "move")
+		});
+		rect0.addEventListener("pointercancel", function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+			if (e.pointerType !== "touch") {
+				console.log("Event is not a touch event ", event);
+				return;
+			}
+			rect0PointerID = 0;
+			incr("rect0", "cancel")
+		});
+		var rect1 = window.document.getElementById("rect1");
+		rect1.addEventListener("pointerdown", function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+			if (e.pointerType !== "touch") {
+				console.log("Event is not a touch event ", event);
+				return;
+			}
+			if (rect1PointerID === 0) {
+				rect1PointerID = e.pointerId;
+			}
+			if (rect1PointerID !== e.pointerId) {
+				console.log("Difference in pointer ids. Expected: ", rect1PointerID, " got: ", e.pointerId);
+			}
+			incr("rect1", "down")
+		});
+		rect1.addEventListener("pointerup", function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+			if (e.pointerType !== "touch") {
+				console.log("Event is not a touch event ", event);
+				return;
+			}
+			rect1PointerID = 0;
+			incr("rect1", "up")
+		});
+		rect1.addEventListener("pointermove", function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+			console.log("Rect1", e.offsetY, e.offsetX);
+			if (e.pointerType !== "touch") {
+				console.log("Event is not a touch event ", event);
+				return;
+			}
+			if (rect1PointerID !== e.pointerId) {
+				console.log("Difference in pointer ids. Expected: ", rect1PointerID, " got: ", e.pointerId);
+			}
+			incr("rect1", "move")
+		});
+		rect1.addEventListener("pointercancel", function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+			if (e.pointerType !== "touch") {
+				console.log("Event is not a touch event ", event);
+				return;
+			}
+			rect1PointerID = 0;
+			incr("rect1", "cancel")
+		});
+	}
+
+	function incr(name, type) {
+		var span = window.document.getElementById(name + type);
+		span.innerText = parseInt(span.innerText) + 1;
+	}
+</script>
+
+<div style="display:grid;grid-column-gap: 50px;grid-template-columns: 100px 100px">
+    <div id="rect0" class="rectangle"></div>
+    <div id="rect1" class="rectangle"></div>
+</div>
+<div>Left Rect down <span id="rect0down">0</span></div>
+<div>Left Rect move <span id="rect0move">0</span></div>
+<div>Left Rect up <span id="rect0up">0</span></div>
+<div>Left Rect cancel <span id="rect0cancel">0</span></div>
+<div>Right Rect down <span id="rect1down">0</span></div>
+<div>Right Rect move <span id="rect1move">0</span></div>
+<div>Right Rect up <span id="rect1up">0</span></div>
+<div>Right Rect cancel <span id="rect1cancel">0</span></div>
+</body>
+</html>
