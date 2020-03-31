@@ -1,0 +1,18 @@
+<html>
+<body onload="onload()">
+<iframe id="frame" style="width: 200; height: 200;" src="canvas.html"></iframe><br />
+<input type="button" id="toggle" value="Toggle" />
+
+<script> 
+function onload() {
+var frame = document.getElementById('frame');
+
+document.getElementById('toggle').onclick = function() {
+    var newVis = frame.style.visibility == 'hidden' ? 'visible' : 'hidden';
+    
+    frame.style.visibility = newVis;
+};
+}
+</script>
+</body>
+</html>
